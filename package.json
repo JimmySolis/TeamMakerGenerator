@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/JimmySolis/TeamMakerGenerator#readme",
   "dependencies": {
-    "inquirer": "^9.0.2",
+    "inquirer": "^6.5.2",
     "jest": "^28.1.3"
   }
 }
