@@ -4,9 +4,9 @@ const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
-// const writeFile = require('./src/writeFile');
-// const generatHtmlFile = require('./src/generat-htmlFile');
-const personal = []
+const dataTransfer = require('./src/writeFile');
+const makeRooster = require('./src/generat-htmlFile');
+const personel = []
 
 const managerStarterQuestions = [
     { 
@@ -46,22 +46,22 @@ const newEmployee = () => {
     ])
     .then(data => {
         switch (data.kindOfEmployee) {
-            case value: 'Engenier';
-                
+            case 'Engenier':
+             engineerPersonel();
                 break;
 
-            case value: 'Intern';
-                
+            case 'Intern':
+             internPersonel();
                 break;
 
-            case value: 'All Finished building Personal.';
-                
+            case 'All Finished building Personal.':
+                collectedDataForTransfer();
                 break;
         }
     })
 };
 
-const engineer = () => {
+const engineerPersonel = () => {
     return inquirer.prompt([
         { 
             type: 'input',
@@ -86,17 +86,66 @@ const engineer = () => {
 
     ])
     .then(data => {
-        // const teamMember = new Engineer(data);
-        console.log(data)
+        const teamMember = new Engineer(data.name, data.id, data.email, data.github);
+        console.log(teamMember)
+        personel.push(teamMember)
+        newEmployee();
     })
 }
 
-function init(){
-    return inquirer.prompt(managerStarterQuestions)
+
+const internPersonel = () => {
+    return inquirer.prompt([
+        { 
+            type: 'input',
+            name: 'name',
+            message: "Enter Intern's NAME.",
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Enter Intern's ID.",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Enter Intern's EMAIL.",
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Enter Intern's SCHOOL.",
+        },
+
+    ])
+    .then(data => {
+        const teamMember = new Intern(data.name, data.id, data.email, data.school);
+        console.log(teamMember)
+        personel.push(teamMember)
+        newEmployee();
+    })
 }
 
+
+function init(){
+    inquirer.prompt(managerStarterQuestions)
+    .then(data => {
+        const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
+        personel.push(manager)
+        
+    })
+    .then(newEmployee)    
+}
+
+
+function collectedDataForTransfer(){
+    makeRooster(personel);
+    // dataTransfer(theHtml)
+}
+
+
 init()
-.then(newEmployee)
-    
-.then((data) => console.log(data))
+
+
+
 
