@@ -2,10 +2,11 @@ const fs = require('fs');
 
 
 
-const dataTransfer = () =>
+
+const writeFile  = (codeforHtml) =>
 new Promise((resolve, rejects) => {
 
-  fs.writeFile('./dist/index.html', theHtml, (err) => {
+  fs.writeFile('./dist/index.html', codeforHtml, (err) => {
     if(err){
       rejects(err);
     }
@@ -13,6 +14,4 @@ new Promise((resolve, rejects) => {
   });
  })
 
-
-
-module.exports = dataTransfer;
+ module.exports = writeFile;

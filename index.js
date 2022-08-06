@@ -1,12 +1,11 @@
-const fs = require('fs');
 const inquirer = require('inquirer');
-const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
-const dataTransfer = require('./src/writeFile');
-const makeRooster = require('./src/generat-htmlFile');
+const generatHtml = require('./src/generat-htmlFile');
+const writeFile = require('./src/writeFile')
 const personel = []
+
 
 const managerStarterQuestions = [
     { 
@@ -134,17 +133,19 @@ function init(){
         personel.push(manager)
         
     })
-    .then(newEmployee)    
+    .then(newEmployee) 
 }
 
 
-function collectedDataForTransfer(){
-    makeRooster(personel);
-    // dataTransfer(theHtml)
-}
+const collectedDataForTransfer = () => {
+    generatHtml(personel);
+      
 
+}
 
 init()
+
+
 
 
 
