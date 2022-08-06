@@ -1,8 +1,5 @@
 const fs = require('fs');
 
-
-
-
 const writeFile  = (codeforHtml) =>
 new Promise((resolve, rejects) => {
 
