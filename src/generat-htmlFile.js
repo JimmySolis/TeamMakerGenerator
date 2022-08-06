@@ -1,4 +1,5 @@
 
+
 const Engineer = require('../lib/engineer')
 const Manager = require('../lib/manager')
 const writeFile = require('./writeFile')
@@ -7,41 +8,43 @@ const writeFile = require('./writeFile')
 const makeRoosterOneByOne = (personel) => {
   const rooster = []
     for (let i = 0; i < personel.length; i++) {
-      let person =`<div class="fullContainer">
+
+      let person =
+      `<div class="fullContainer">
                    <div class="topContainer">
                    <h4>${personel[i].name}</h4>
                    <h3><span>`
-      if(person[i].getRole() === 'Manager'){
-        person += `💼 <span> ${person[i].role}`
-      }else if(person[i].getRole() === 'Engineer'){
-        person += `⚙️ <span> ${person[i].role}`
+      if(personel[i].role === 'Manager'){
+        person += `💼 <span> ${personel[i].role}`
+      }else if(personel[i].role === 'Engineer'){
+        person += `⚙️ <span> ${personel[i].role}`
       }else{
-        person += `🎓 <span> ${person[i].role}`
+        person += `🎓 <span> ${personel[i].role}`
       }
 
       person += `<h3> 
                 </div>
                 <div class="bottomContainer">
-                <ul>
                 <li class="decore">ID #:
-                ${person[i].id}
+                ${personel[i].id}
                 </li>
                 <li class="decore"> Email:
-                <a href="mailto:${person[i].email}">${person[i].email}</a>
+                <a href="mailto:${personel[i].email}">${personel[i].email}</a>
                 </li>
                 `
-      if(person[1].officeNumber){
-        person += `<li class="decore">Office Number: ${person[i].officeNumber}</li>`
-      }else if(person[i].username.username){
-        person += `<li class="decore"> GitHub Username: ${person[i].username}`
+      if(personel[i].officeNumber){
+        person += `<li class="decore">Office Number: ${personel[i].officeNumber}</li>`
+      }else if(personel[i].github){
+        person += `<li class="decore"> GitHub Username: ${personel[i].github}</li>`
+      }else if(personel[i].school){
+        person += `<li class="decore"> School: ${personel[i].school}</li>`
       }else{
-        person += `<li class="decore"> School: ${person[i].shcool}`
+        person += ``
       }
        
-      person += `</ul>
+      person += `
                 </div>
                 </div>`;
-     console.log(person)
      rooster.push(person)
      console.log(rooster)
 

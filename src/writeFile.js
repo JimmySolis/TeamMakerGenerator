@@ -10,7 +10,7 @@ new Promise((resolve, rejects) => {
     if(err){
       rejects(err);
     }
-    resolve(console.log(`HTML MADE!`))
+    resolve(console.log(`New Person Added to HTML!`))
   });
  })
 

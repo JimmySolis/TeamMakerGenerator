@@ -85,7 +85,7 @@ const engineerPersonel = () => {
 
     ])
     .then(data => {
-        const teamMember = new Engineer(data.name, data.id, data.email, data.github);
+        const teamMember = new Engineer(data);
         console.log(teamMember)
         personel.push(teamMember)
         newEmployee();
@@ -118,7 +118,7 @@ const internPersonel = () => {
 
     ])
     .then(data => {
-        const teamMember = new Intern(data.name, data.id, data.email, data.school);
+        const teamMember = new Intern(data);
         console.log(teamMember)
         personel.push(teamMember)
         newEmployee();
@@ -129,7 +129,7 @@ const internPersonel = () => {
 function init(){
     inquirer.prompt(managerStarterQuestions)
     .then(data => {
-        const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
+        const manager = new Manager(data)
         personel.push(manager)
         
     })

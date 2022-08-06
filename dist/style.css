@@ -1,28 +1,54 @@
+
+
 header{
     border: 1px black solid;
-    text-align: center;
+    display: flex;
     align-items: center;
+    justify-content:center;
     height: 10vh;
+    background: linear-gradient(#fafe00, rgb(255, 157, 0));
+    color:  rgb(0, 0, 248);
+    
 }
+
+
 
 main{
     display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(#00aefe, white);
+   
+    
 }
 
 .fullContainer{
-    border: 1px black solid;
     width: 15vw;
     height: 15vh;
     text-align: center;
     text-transform: uppercase;
-    margin: 5% 10%;
+    margin: 5%;
+    box-shadow: 10px 10px;
+    border-radius: 20px;
+    border: 2px black solid;
+
 
 }
 
 .topContainer{
-    border: 1px black solid;
+    margin: 5px;
+    border-radius: 20px;
 }
 
-.bottomContainer{
-    border: 1px black solid;    
+  
+
+
+.decore{
+    border: 1px black solid; 
+    background-color: azure;
+    margin: 0px 10px;
+    
+}
+
+li{
+    list-style: none;
 }
