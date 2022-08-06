@@ -1,0 +1,28 @@
+header{
+    border: 1px black solid;
+    text-align: center;
+    align-items: center;
+    height: 10vh;
+}
+
+main{
+    display: flex;
+}
+
+.fullContainer{
+    border: 1px black solid;
+    width: 15vw;
+    height: 15vh;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 5% 10%;
+
+}
+
+.topContainer{
+    border: 1px black solid;
+}
+
+.bottomContainer{
+    border: 1px black solid;    
+}
