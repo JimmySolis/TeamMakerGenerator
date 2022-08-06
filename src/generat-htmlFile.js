@@ -35,7 +35,7 @@ const makeRoosterOneByOne = (personel) => {
       if(personel[i].officeNumber){
         person += `<li class="decore">Office Number: ${personel[i].officeNumber}</li>`
       }else if(personel[i].github){
-        person += `<li class="decore"> GitHub Username: ${personel[i].github}</li>`
+        person += `<li class="decore"> GitHub Username: <a href= "https://github.com/${personel[i].github}" target="_blank">${personel[i].github}</a></li>`
       }else if(personel[i].school){
         person += `<li class="decore"> School: ${personel[i].school}</li>`
       }else{
